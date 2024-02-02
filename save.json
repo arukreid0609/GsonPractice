@@ -1,1 +1,1 @@
-{"name":"勇者","hp":100,"sword":{"name":"剣","atk":50}}
+{"name":"勇者","hp":100,"sword":{"name":"剣","atk":50},"className":"Hero"}
