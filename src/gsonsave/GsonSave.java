@@ -1,3 +1,4 @@
+package gsonsave;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -14,42 +15,50 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class GsonInstant {
+public class GsonSave<T> {
 	private Gson gson = new Gson();
-	private String path = "save2.json";
+	private String path;
 
-	public Human loadHuman() {
-		Human h = null;
+	public GsonSave(String path) {
+		if(path.matches("[a-zA-Z0-9/]{1,}.json")) {
+			this.path = path;
+		}else {
+			throw new IllegalArgumentException("ファイル名は半角英数字、末尾は.jsonのみ有効");
+		}
+	}
+
+	public T load() {
+		T obj = null;
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
 			String json = br.readLine();
 			// Json文字列→インスタンス生成
-			h = (Human) getInstanceFromJson(json);
+			obj = (T) getInstanceFromJson(json);
 			System.out.println("読み込み完了しました");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("読み込みに失敗しました");
 		}
-		return h;
+		return obj;
 	}
 
-	public List<Human> loadHumans() {
-		List<Human> h = null;
+	public List<T> loadList() {
+		List<T> list = null;
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
 			String json = br.readLine();
 			// Json文字列→インスタンス生成
-			JsonObject o = gson.fromJson(json, JsonObject.class);
-			JsonArray array = o.get("datas").getAsJsonArray();
-			h = new ArrayList<Human>();
-			for(JsonElement e:array) {
-				Human human = (Human)getInstanceFromJson(e);
-				h.add((Human)getInstanceFromJson(e));
+			JsonObject object = gson.fromJson(json, JsonObject.class);
+			JsonArray array = object.get("datas").getAsJsonArray();
+			list = new ArrayList<T>();
+			for(JsonElement element:array) {
+				T instance = (T)getInstanceFromJson(element);
+				list.add(instance);
 			}
 			System.out.println("読み込み完了しました");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("読み込みに失敗しました");
 		}
-		return h;
+		return list;
 	}
 
 	private Object getInstanceFromJson(String json)
@@ -79,7 +88,7 @@ public class GsonInstant {
 	}
 
 	// 複数のインスタンスをJsonObjectに変換
-	private JsonObject toJsonObjects(List list) {
+	private JsonObject toJsonObjects(List<?> list) {
 		JsonObject json = new JsonObject();
 		JsonArray array = new JsonArray();
 		json.add("datas", array);
@@ -103,7 +112,7 @@ public class GsonInstant {
 		save(json);
 	}
 
-	public void save(List list) {
+	public void save(List<?> list) {
 		JsonObject json = toJsonObjects(list);
 		save(json);
 	}

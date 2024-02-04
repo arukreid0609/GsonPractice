@@ -1,1 +1,1 @@
-{"datas":[{"name":"勇者","hp":100,"sword":{"name":"剣","atk":50},"className":"Hero"},{"name":"ヒーロー","hp":150,"sword":{"name":"剣","atk":50},"className":"Hero"},{"name":"魔法使いaaaaa","hp":50,"sword":{"name":"剣","atk":50},"className":"Wizard"}]}
+{"datas":[{"name":"勇者A","hp":100,"sword":{"name":"剣","atk":50},"className":"Hero"},{"name":"ヒーローB","hp":150,"sword":{"name":"剣","atk":50},"className":"Hero"},{"name":"魔法使いaaaaa","hp":50,"sword":{"name":"剣","atk":50},"className":"Wizard"}]}
