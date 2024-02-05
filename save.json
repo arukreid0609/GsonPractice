@@ -1,1 +1,1 @@
-{"name":"勇者","hp":100,"sword":{"name":"剣","atk":50},"className":"Hero"}
+{"datas":[{"name":"勇者AAA","hp":100,"sword":{"name":"剣","atk":50},"className":"main.Hero"},{"name":"ヒーローB","hp":150,"sword":{"name":"剣","atk":50},"className":"main.Hero"},{"name":"魔法使いaaaaa","hp":50,"sword":{"name":"剣","atk":50},"className":"main.Wizard"}]}
