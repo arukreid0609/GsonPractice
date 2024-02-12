@@ -13,6 +13,4 @@ public class Wizard extends Human{
 	public String toString() {
 		return "Wizard [name=" + name + ", hp=" + hp + ", sword=" + sword + "]";
 	}
-	
-	
 }

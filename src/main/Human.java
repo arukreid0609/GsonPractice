@@ -1,5 +1,5 @@
 package main;
-public abstract class Human {
+public  class Human {
 	String name;
 	int hp;
 	Sword sword;

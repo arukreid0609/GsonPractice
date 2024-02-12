@@ -1,8 +1,5 @@
 package main;
 public class Hero extends Human{
-//	String name;
-//	int hp;
-//	Sword sword;
 	String a;
 	
 	public Hero() {
@@ -18,6 +15,4 @@ public class Hero extends Human{
 	public String toString() {
 		return "Hero [name=" + name + ", hp=" + hp + ", sword=" + sword + "]";
 	}
-
-	
 }
