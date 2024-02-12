@@ -3,6 +3,7 @@ public class Hero extends Human{
 //	String name;
 //	int hp;
 //	Sword sword;
+	String a;
 	
 	public Hero() {
 		
