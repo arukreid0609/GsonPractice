@@ -36,7 +36,10 @@ public class GsonMain2 {
 //		for(Field fi : field) {
 		for(Field fi : fList) {
 //			fi.setAccessible(true);
-			System.out.println(fi.getName());
+//			System.out.println(fi.getName());
+			Object o = fi.get(h);
+			if(o == null)continue;
+			System.out.println(o.getClass());
 //			System.out.println(fi.get(h));
 		}
 
